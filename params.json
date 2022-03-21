@@ -1,0 +1,61 @@
+{
+    "paths": {
+        "tensorboard_path": "/path/to/tensorboard/",
+        "scratch_path": "/path/to/scratch/",
+        "dataset_path": "/path/to/datasets",
+        "dataset_training": "training_dataset.nc4",
+        "input_format": "netcdf",
+        "cache_path": "/path/to/cache"
+
+    },
+
+    "training_params": {
+        "model_name": "dnn_weighted",
+        "hyperparameter_search": "random",
+        "n_samples": 10,
+        "features": {
+                "vertical_velocity": [200, 250, 300, 400, 500, 600, 700, 850, 950, 975, 1000],
+                "ifs_total_precipitation": null
+                },
+        "target": "trmm_total_precipitation",
+
+        "training_start": 1998,
+        "training_end": 2008,
+        "validation_start": 2009,
+        "validation_end": 2011,
+        "test_start": 2012,
+        "test_end": 2014,
+
+        "target_transform": null,
+        "feature_transform": null,
+
+        "save_output": true,
+        "patience": 20,
+        "num_workers": 0,
+        "caching": true,
+        "lazy": true,
+
+        "model_architecture": "unet",
+        "loss_function": "msssim_weighted_mse"
+    },
+
+    "hparams": {
+        "n_epochs": [600],
+        "batch_size": [64],
+        "lr": [4.1, 4.3],
+        "weight_decay": [1e-5, 1e-7],
+
+        "depth": [3, 4],
+        "wf": [4, 5],
+        "padding": [1],
+        "up_mode": ["upconv"],
+        "batch_norm": [0],
+
+        "w_fact": [0.0005, 0.001],
+        "w_exponent": [0.001, 0.045],
+        "w_bias": [1],
+
+        "data_range": [1],
+        "alpha": [0.15]
+    }
+}

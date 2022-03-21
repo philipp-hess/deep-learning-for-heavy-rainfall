@@ -1,0 +1,8 @@
+{
+    "paths": {
+        "ifs_vertical_velocity": "/path/to/vertical_velocity_data/*",
+        "ifs_precipitation":  "/path/to/precipitation_data/*",
+        "trmm_precipitation": "/path/to/trmm_data/*",
+        "out_dataset": "/path/to/traninig_dataset.nc4"
+    }
+}
